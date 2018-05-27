@@ -16,10 +16,10 @@ def knapsack(capacity, value, weight):
                 if value[i - 1] + K[(i - 1) % 2][c - weight[i - 1]] > K[(i - 1) % 2][c]:
                     K[i % 2][c] = value[i - 1] + \
                         K[(i - 1) % 2][c - weight[i - 1]]
-                    s[c % 2] = i
+                    s[i % 2] = i
                 else:
                     K[i % 2][c] = K[(i - 1) % 2][c]
-                    s[c % 2] = s[(c - 1) % 2]
+                    s[i % 2] = s[(i-1)%2]
             else:
                 K[i % 2][c] = K[(i - 1) % 2][c]
 
@@ -27,9 +27,9 @@ def knapsack(capacity, value, weight):
 
 
 if __name__ == '__main__':
-    weight = [10, 60, 20]
-    value = [80, 100, 20]
-    capacity = 50
+    weight = [10, 60, 20, 30, 70, 40]
+    value = [80, 100, 20, 120, 150, 10]
+    capacity = 150
 
     max_value, select = knapsack(capacity, value, weight)
     print('max value = ', max_value)
