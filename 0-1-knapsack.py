@@ -19,7 +19,7 @@ def knapsack(capacity, value, weight):
                     s[i % 2] = i
                 else:
                     K[i % 2][c] = K[(i - 1) % 2][c]
-                    s[i % 2] = s[(i-1)%2]
+                    s[i % 2] = s[(i - 1) % 2]
             else:
                 K[i % 2][c] = K[(i - 1) % 2][c]
 
